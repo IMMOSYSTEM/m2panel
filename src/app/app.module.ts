@@ -17,12 +17,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ComponentsModule } from "./components/components.module";
 
 import { AppRoutingModule } from './app-routing.module';
-
+import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
+import { ReactiveFormsModule } from "@angular/forms";
 @NgModule({
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    LoginLayoutComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -37,7 +39,8 @@ import { AppRoutingModule } from './app-routing.module';
     TagInputModule,
     PresentationModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

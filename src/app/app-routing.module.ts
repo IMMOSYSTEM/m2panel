@@ -6,7 +6,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component";
 import { PresentationComponent } from "./pages/presentation/presentation.component";
-
+import { LoginLayoutComponent } from "./layouts/login-layout/login-layout.component";
 const routes: Routes = [
   {
     path: "",
@@ -42,6 +42,16 @@ const routes: Routes = [
       }
     ]
   },
+  {
+    path: "",
+    component: LoginLayoutComponent,
+    children: [
+      {
+        path: "auth",
+        loadChildren: () => import('./pages/admin-login/admin-login.module').then(m => m.AdminLoginModule)
+      }
+    ]
+  }, 
   {
     path: "**",
     redirectTo: "dashboard"

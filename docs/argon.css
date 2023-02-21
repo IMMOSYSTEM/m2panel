@@ -8033,6 +8033,10 @@ button.bg-dark:focus
 {
     background-color: #172b4d !important;
 }
+.bg-blue
+{
+    background-color: #004aad !important;
+}
 
 a.bg-default:hover,
 a.bg-default:focus,
@@ -15543,6 +15547,10 @@ button.section-darker:focus
 .fill-default
 {
     fill: #172b4d;
+}
+.fill-blue
+{
+    fill: #004aad;
 }
 
 .stroke-default
