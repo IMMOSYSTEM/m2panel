@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   }
   formUser = this.fb.group({
     'email':['',[Validators.required,Validators.email]],
-    'password':['',Validators.required]
+    'password':['',[Validators.required,Validators.minLength(6)]]
   });
 
 
@@ -35,6 +35,16 @@ export class LoginComponent implements OnInit {
     var body = document.getElementsByTagName("body")[0];
     body.classList.remove("bg-blue");
  
+  }
+  hiddenB=false;
+  submit() {
+    if (this.formUser.valid) {
+      this.hiddenB=true;
+      swal.fire('Inicio de sesión','' ,'success');
+    }
+    else{
+      alert("FILL ALL FIELDS")
+    }
   }
 
 }

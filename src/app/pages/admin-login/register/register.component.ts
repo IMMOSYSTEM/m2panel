@@ -29,14 +29,16 @@ export class RegisterComponent implements OnInit {
   get repeatPassword (){
     return this.formUser.get('repeatPassword');
   }
+
   formUser = this.fb.group({
     'name':['',Validators.required],
-    'email':['',[Validators.required,Validators.email,Validators.pattern('[A-Z]{1,2}[0-9][0-9A-Z]?\\s?[0-9][A-Z]{2}')]],
-    'phone':['',Validators.required],
-    'password':['',Validators.required],  
+    'email':['',[Validators.required,Validators.email]],
+    'phone':['',[Validators.required,  Validators.maxLength(14)]],
+    'password':['',[Validators.required,Validators.minLength(6)]],  
     'repeatPassword':['',Validators.required],
   });
 
+ 
   ngOnInit() {
   
     var body = document.getElementsByTagName("body")[0];
@@ -49,15 +51,43 @@ export class RegisterComponent implements OnInit {
     body.classList.remove("bg-blue");
  
   }
+  hiddenB=false;
   submit() {
-    console.log('me llamaron')
+ 
     if (this.formUser.valid) {
-      console.log(this.formUser.value)
+      this.hiddenB=true;
       swal.fire('Registro exitoso...','' ,'success');
     }
     else{
       alert("FILL ALL FIELDS")
     }
   }
+
+  validateFormat(event) {
+    let key;
+    if (event.type === 'paste') {
+      key = event.clipboardData.getData('text/plain');
+    } else {
+      key = event.keyCode;
+      key = String.fromCharCode(key);
+    }
+    const regex = /[0-9]|\./;
+     if (!regex.test(key)) {
+      event.returnValue = false;
+       if (event.preventDefault) {
+        event.preventDefault();
+       }
+     }
+    }
+    hidden=false;
+    validatePassword() {
+      this.hidden=true;
+          
+      if( this.password.value === this.repeatPassword.value){
+       
+        this.hidden=false;
+      }
+    }  
+    
 
 }

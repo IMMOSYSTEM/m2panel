@@ -34,7 +34,7 @@
                 <strong> Recuperar Contraseña</strong>
               </div>
   
-              <form  [formGroup]="formUser" role="form" id="contactForm"  >
+              <form  [formGroup]="formUser" role="form" id="contactForm" (ngSubmit)="submit()" >
            
                 <div class="form-group" [ngClass]="{ focused: focus1 === true }">
                   <div class="input-group input-group-alternative">
@@ -67,26 +67,30 @@
                         ></span>
                       </div>
                       <input
-                        class="form-control"
+                        class="form-control" 
                         placeholder="Repetir Contraseña"
                         type="password"
                         (focus)="focus1 = true"
                         (blur)="focus1 = false"
-                        name="password"
-                        formControlName="password"
+                        name="repeatPassword"
+                        formControlName="repeatPassword"
+                        (keyup)="validatePassword()"
                         required
                       />
+                      
                     </div>
-                    <div class="mt-2 text-danger" [hidden]="password?.valid ||  password?.pristine ">
-                      <small>Contraseña es requerida.</small> 
+                    <div class="mt-2 text-danger" *ngIf="hidden" >
+                      <small>No concuerda la Contraseña.</small> 
                     </div>
                   </div>
                 
              
                 <div class="text-center">
-                  <button type="button" class="btn btn-primary my-4" [disabled]="formUser.invalid">
+                  <button type="submit" class="btn btn-primary my-4 " [disabled]="formUser.invalid">
                     Recuperar
-                  </button>
+                    <span class="spinner-border spinner-border-sm" *ngIf="hiddenB" role="status" aria-hidden="true"></span>
+
+                  </button>                          
                 </div>
               </form>
             </div>
