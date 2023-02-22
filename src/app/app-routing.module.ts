@@ -7,6 +7,7 @@ import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.compon
 import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component";
 import { PresentationComponent } from "./pages/presentation/presentation.component";
 import { LoginLayoutComponent } from "./layouts/login-layout/login-layout.component";
+import { AdminPanelComponent } from "./layouts/admin-panel/admin-panel.component";
 const routes: Routes = [
   {
     path: "",
@@ -52,6 +53,24 @@ const routes: Routes = [
       }
     ]
   }, 
+  {
+    path: "",
+    component: AdminPanelComponent,
+    children: [
+      {
+        path: "dashboard",
+        loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule)
+      },
+      {
+        path: "properties",
+        loadChildren: () => import('./pages/properties/properties.module').then(m => m.PropertiesModule)
+      },
+      {
+        path: "account",
+        loadChildren: () => import('./pages/account/account.module').then(m => m.AccountModule)
+      }
+    ]
+  },
   {
     path: "**",
     redirectTo: "dashboard"

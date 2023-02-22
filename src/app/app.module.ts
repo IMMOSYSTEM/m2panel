@@ -19,12 +19,14 @@ import { ComponentsModule } from "./components/components.module";
 import { AppRoutingModule } from './app-routing.module';
 import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
 import { ReactiveFormsModule } from "@angular/forms";
+import { AdminPanelComponent } from './layouts/admin-panel/admin-panel.component';
 @NgModule({
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    LoginLayoutComponent
+    LoginLayoutComponent,
+    AdminPanelComponent
   ],
   imports: [
     BrowserAnimationsModule,
