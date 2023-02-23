@@ -14,6 +14,7 @@ import { RouterModule } from "@angular/router";
 import { CollapseModule } from "ngx-bootstrap/collapse";
 import { DxVectorMapModule, DxPieChartModule } from 'devextreme-angular';
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
+import { SidebarmComponent } from './sidebarm/sidebarm.component';
 
 @NgModule({
   imports: [
@@ -28,12 +29,14 @@ import { BsDropdownModule } from "ngx-bootstrap/dropdown";
   declarations: [
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    SidebarmComponent
   ],
   exports: [
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    SidebarmComponent
   ],
   providers: [
     {
