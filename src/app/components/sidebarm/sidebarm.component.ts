@@ -56,7 +56,7 @@ export const ROUTES: RouteInfo[] = [
     path: "/account",
     title: "Cuenta",
     type: "sub",
-    icontype: "circle-08 text-blue",
+    icontype: "fas fa-users-cog text-blue",
     collapse: "account",
     isCollapsed: true,
     children: [

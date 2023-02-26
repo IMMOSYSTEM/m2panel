@@ -312,6 +312,37 @@ export const chartExample1 = {
   }
 };
 
+export const chartExample4 = {
+  options: {
+    scales: {
+      yAxes: [
+        {
+          gridLines: {
+            color: colors.gray[900],
+            zeroLineColor: colors.gray[900]
+          },
+          ticks: {
+            callback: function(value) {
+              if (!(value % 10)) {
+                return "#" + value + "";
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  data: {
+    labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto"],
+    datasets: [
+      {
+        label: "Total de leads",
+        data: [0, 20, 10, 30, 15, 40, 20, 60, 60]
+      }
+    ]
+  }
+};
+
 export const chartExample2 = {
   options: {
     scales: {
