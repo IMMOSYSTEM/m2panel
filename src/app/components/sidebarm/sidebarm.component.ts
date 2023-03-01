@@ -41,7 +41,7 @@ export const ROUTES: RouteInfo[] = [
     ]
   },
   {
-    path: "/properties",
+    path: "/iventory",
     title: "Propiedades",
     type: "sub",
     icontype: "ni-ungroup text-orange",
