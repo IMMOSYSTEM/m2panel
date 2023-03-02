@@ -1,45 +1,282 @@
 <div class="row"> 
     <div class="col-md-12 col-md-offset-3">
-        <form [formGroup]="personalDetails" id="msform">
+        <form [formGroup]="dataPropsG" id="msform">
             <!-- progressbar -->
             <ul id="progressbar">
-                <li [ngClass]="step>=1 ? 'active ' : 'inactive'">Personal Details</li>
-                <li [ngClass]="step>=2 ? 'active' : 'inactive'">Social Profiles</li>
+                <li [ngClass]="step>=1 ? 'active ': 'inactive'">Datos Generales</li>
+                <li [ngClass]="step>=2 ? 'active' : 'inactive'">Caractirísticas</li>
                 <li [ngClass]="step==3 ? 'active' : 'inactive'">Account Setup</li>
             </ul>
             <!-- fieldsets -->
             <fieldset  *ngIf="step == 1" >
-                <h2 class="fs-title">Personal Details</h2>
-                <input type="text" formControlName="name"  [ngClass]="{ 'is-invalid': personal_step && personal.name.errors }" placeholder="Full Name"/>
-                <div *ngIf="personal_step && personalDetails.controls.name.errors">
-                    <div *ngIf="personal.name.errors?.required">Name is required</div>
+                <div class="row">
+                    <div id="card-component" class="tab-pane tab-example-result fade show active text-start mb-3" role="tabpanel" aria-labelledby="card-component-tab">
+                        <div class="card card-frame bg-dark">
+                          <div class="card-body">
+                            <h3 class="text-white">Datos Generales</h3>
+                          </div>
+                        </div>
+                    </div>                  
+                    <div class=" col-md-3">
+                        <div class="form-group">
+                            <label class="text-black">Tipo de inmueble </label>
+                            <div class=" input-group input-group-merge">
+                                <div class=" input-group-prepend">                                
+                                    <span class=" input-group-text">
+                                        <i class="fas fa-city"></i>
+                                    </span>
+                                </div>                               
+                                <select class="form-select form-control" id="typeProp"  formControlName="typeProp" name="typeProp" class="form-select form-control"  [ngClass]="{ 'is-invalid': personal_step && dataPropsG.controls.typeProp.errors }"  placeholder="Estado">
+                                    <option> Casa </option>
+                                    <option> Departamento </option>                              
+                                </select>
+                            </div>
+                            <div *ngIf="personal_step && dataPropsG.controls.typeProp.errors">
+                                <small class="text-red">Este campo es obligatorio</small>
+                             </div>
+                        </div>   
+                    </div>
+                    <div class=" col-md-3">
+                        <div class="form-group text-start">
+                            <label class="text-black label ">Nombre de propiedad</label>
+                            <div class=" input-group input-group-merge">                                                  
+                                <input type="text" formControlName="nameProperties" name="nameProperties" class="form-control"  [ngClass]="{ 'is-invalid': personal_step && personal.nameProperties.errors }" placeholder="Nombre de propiedad"/>                        
+                            </div>
+                            
+                            <div *ngIf="personal_step && dataPropsG.controls.nameProperties.errors">
+                                <small class="text-red">Este campo es obligatorio</small>
+                            </div>
+                            
+                        </div>   
+                    </div>
+                    <div class=" col-md-3">
+                        <div class="form-group text-start">
+                            <label class="text-black label ">Domicilio</label>
+                            <div class=" input-group input-group-merge">                                                  
+                                <input type="text" formControlName="direction" name="direction" class="form-control"  [ngClass]="{ 'is-invalid': personal_step && dataPropsG.controls.direction.errors }"  placeholder="Email"/>
+                            </div>
+                            <div *ngIf="personal_step && dataPropsG.controls.direction.errors">
+                                <small class="text-red">Este campo es obligatorio</small>
+                             </div>
+                        </div>   
+                    </div>
+                    <div class=" col-md-3">
+                        <div class="form-group text-start">
+                            <label class="text-black label ">Keyword de la propiedad</label>
+                            <div class=" input-group input-group-merge">                                                  
+                                <input type="text" formControlName="keywordProperties" name="keywordProperties" class="form-control"  [ngClass]="{ 'is-invalid': personal_step && dataPropsG.controls.keywordProperties.errors }"  placeholder="Keyword de la propiedad"/>
+                            </div>
+                            <div *ngIf="personal_step && dataPropsG.controls.keywordProperties.errors">
+                                <small class="text-red">Este campo es obligatorio</small>
+                             </div>
+                        </div>   
+                    </div> 
+                    <div class=" col-md-3">
+                        <div class="form-group">
+                            <label class="text-black">Pais </label>
+                            <div class=" input-group input-group-merge">
+                                <div class=" input-group-prepend">                                
+                                    <span class=" input-group-text">
+                                        <i class="fas fa-city"></i>
+                                    </span>
+                                </div>                               
+                                <select class="form-select form-control" id="countryProperties"  formControlName="countryProperties" name="countryProperties" class="form-select form-control"  [ngClass]="{ 'is-invalid': personal_step && dataPropsG.controls.countryProperties.errors }"  placeholder="Pais">
+                                    <option> Quintana Roo </option>
+                                    <option> Yucatán </option>                              
+                                </select>
+                            </div>
+                            <div *ngIf="personal_step && dataPropsG.controls.countryProperties.errors">
+                                <small class="text-red">Este campo es obligatorio</small>
+                             </div>
+                        </div>   
+                    </div>
+                    <div class=" col-md-3">
+                        <div class="form-group">
+                            <label class="text-black">Estado </label>
+                            <div class=" input-group input-group-merge">
+                                <div class=" input-group-prepend">                                
+                                    <span class=" input-group-text">
+                                        <i class="fas fa-city"></i>
+                                    </span>
+                                </div>                               
+                                <select class="form-select form-control" id="stateProperties"  formControlName="stateProperties" name="stateProperties" class="form-select form-control"  [ngClass]="{ 'is-invalid': personal_step && dataPropsG.controls.stateProperties.errors }"  placeholder="Estado">
+                                    <option> Quintana Roo </option>
+                                    <option> Yucatán </option>                              
+                                </select>
+                            </div>
+                            <div *ngIf="personal_step && dataPropsG.controls.stateProperties.errors">
+                                <small class="text-red">Este campo es obligatorio</small>
+                             </div>
+                        </div>   
+                    </div>
+                    <div class=" col-md-3">
+                        <div class="form-group">
+                            <label class="text-black">Colonia </label>
+                            <div class=" input-group input-group-merge">
+                                <div class=" input-group-prepend">                                
+                                    <span class=" input-group-text">
+                                        <i class="fas fa-city"></i>
+                                    </span>
+                                </div>                               
+                                <select class="form-select form-control" id="suburbProperties"  formControlName="suburbProperties" name="suburbProperties" class="form-select form-control"  [ngClass]="{ 'is-invalid': personal_step && dataPropsG.controls.suburbProperties.errors }"  placeholder="Colonia">
+                                    <option> Quintana Roo </option>
+                                    <option> Yucatán </option>                              
+                                </select>
+                            </div>
+                            <div *ngIf="personal_step && dataPropsG.controls.suburbProperties.errors">
+                                <small class="text-red">Este campo es obligatorio</small>
+                             </div>
+                        </div>    
+                    </div>
+                    <div class=" col-md-3">
+                        <div class="form-group">
+                            <label class="text-black">Ciudad </label>
+                            <div class=" input-group input-group-merge">
+                                <div class=" input-group-prepend">                                
+                                    <span class=" input-group-text">
+                                        <i class="fas fa-city"></i>
+                                    </span>
+                                </div>                               
+                                <select class="form-select form-control" id="cityProperties"  formControlName="cityProperties" name="cityProperties" class="form-select form-control"  [ngClass]="{ 'is-invalid': personal_step && dataPropsG.controls.cityProperties.errors }"  placeholder="Colonia">
+                                    <option> Quintana Roo </option>
+                                    <option> Yucatán </option>                              
+                                </select>
+                            </div>
+                            <div *ngIf="personal_step && dataPropsG.controls.cityProperties.errors">
+                                <small class="text-red">Este campo es obligatorio</small>
+                             </div>
+                        </div>    
+                    </div>
+
                 </div>
-                <input type="text" formControlName="email" name="email" placeholder="Email"/>
-                <div *ngIf="personal_step && personalDetails.controls.email.errors">
-                  <div *ngIf="personal.email.errors?.required">Email is required</div>
-               </div>
-                <input type="text" formControlName="phone" name="phone" placeholder="Phone"/>
-                <div *ngIf="personal_step && personalDetails.controls.phone.errors">
-                  <div *ngIf="personal.phone.errors?.required">Phone is required</div>
-              </div>
-                <input (click)="next()" type="button" name="next" class="next action-button" value="Next"/>
+                <div class="row">
+                    <div id="card-component" class="tab-pane tab-example-result fade show active text-start mb-3" role="tabpanel" aria-labelledby="card-component-tab">
+                        <div class="card card-frame bg-dark">
+                          <div class="card-body">
+                            <h3 class="text-white">Precios</h3>
+                          </div>
+                        </div>
+                    </div>  
+                    <div class="row">
+                        <div class=" col-md-3">
+                            <div class="form-group text-start">
+                                <label class="text-black label ">Precio Venta</label>
+                                <div class=" input-group input-group-merge">                                                  
+                                    <input type="number" formControlName="priceRent" name="priceRent" class="form-control"  [ngClass]="{ 'is-invalid': personal_step && personal.priceRent.errors }" placeholder="Precio Venta"/>                        
+                                </div>                                
+                                <div *ngIf="personal_step && dataPropsG.controls.priceRent.errors">
+                                    <small class="text-red">Este campo es obligatorio</small>
+                                </div>                               
+                            </div>   
+                        </div>
+                        <div class=" col-md-2">
+                            <div class="form-group">
+                                <label class="text-black">Moneda</label>
+                                <div class=" input-group input-group-merge">
+                                    <div class=" input-group-prepend">                                
+                                        <span class=" input-group-text">
+                                            <i class="fas fa-dollar-sign"></i>
+                                        </span>
+                                    </div>                               
+                                    <select class="form-select form-control" id="currencySold"  formControlName="currencySold" name="currencySold" class="form-select form-control"  [ngClass]="{ 'is-invalid': personal_step && dataPropsG.controls.currencySold.errors }" >
+                                        <option> MXN </option>
+                                        <option> USD </option>  
+                                        <option> EUR </option>                            
+                                    </select>
+                                </div>
+                                <div *ngIf="personal_step && dataPropsG.controls.currencySold.errors">
+                                    <small class="text-red">Este campo es obligatorio</small>
+                                 </div>
+                            </div>    
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class=" col-md-3">
+                            <div class="form-group text-start">
+                                <label class="text-black label ">Precio Renta</label>
+                                <div class=" input-group input-group-merge">                                                  
+                                    <input type="number" formControlName="priceRent" name="priceRent" class="form-control"  [ngClass]="{ 'is-invalid': personal_step && personal.priceRent.errors }" placeholder="Precio Renta"/>                        
+                                </div>                                
+                                <div *ngIf="personal_step && dataPropsG.controls.nameProperties.errors">
+                                    <small class="text-red">Este campo es obligatorio</small>
+                                </div>                               
+                            </div>   
+                        </div>
+                        <div class=" col-md-2">
+                            <div class="form-group">
+                                <label class="text-black">Moneda</label>
+                                <div class=" input-group input-group-merge">
+                                    <div class=" input-group-prepend">                                
+                                        <span class=" input-group-text">
+                                            <i class="fas fa-dollar-sign"></i>
+                                        </span>
+                                    </div>                               
+                                    <select class="form-select form-control" id="currencyRent"  formControlName="currencyRent" name="currencyRent" class="form-select form-control"  [ngClass]="{ 'is-invalid': personal_step && dataPropsG.controls.currencyRent.errors }" >
+                                        <option> MXN </option>
+                                        <option> USD </option>  
+                                        <option> EUR </option>                            
+                                    </select>
+                                </div>
+                                <div *ngIf="personal_step && dataPropsG.controls.currencyRent.errors">
+                                    <small class="text-red">Este campo es obligatorio</small>
+                                 </div>
+                            </div>    
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class=" col-md-3">
+                            <div class="form-group text-start">
+                                <label class="text-black label ">Precio Renta vacacional</label>
+                                <div class=" input-group input-group-merge">                                                  
+                                    <input type="number" formControlName="priceRentVacation" name="priceRentVacation" class="form-control"  [ngClass]="{ 'is-invalid': personal_step && personal.priceRentVacation.errors }" placeholder="Precio Renta"/>                        
+                                </div>                                
+                                <div *ngIf="personal_step && dataPropsG.controls.priceRentVacation.errors">
+                                    <small class="text-red">Este campo es obligatorio</small>
+                                </div>                               
+                            </div>   
+                        </div>
+                        <div class=" col-md-2">
+                            <div class="form-group">
+                                <label class="text-black">Moneda</label>
+                                <div class=" input-group input-group-merge">
+                                    <div class=" input-group-prepend">                                
+                                        <span class=" input-group-text">
+                                            <i class="fas fa-dollar-sign"></i>
+                                        </span>
+                                    </div>                               
+                                    <select class="form-select form-control" id="currencyRentVacation"  formControlName="currencyRentVacation" name="currencyRentVacation" class="form-select form-control"  [ngClass]="{ 'is-invalid': personal_step && dataPropsG.controls.currencyRentVacation.errors }" >
+                                        <option> MXN </option>
+                                        <option> USD </option>  
+                                        <option> EUR </option>                            
+                                    </select>
+                                </div>
+                                <div *ngIf="personal_step && dataPropsG.controls.currencyRentVacation.errors">
+                                    <small class="text-red">Este campo es obligatorio</small>
+                                 </div>
+                            </div>    
+                        </div>
+                    </div>
+                  
+                </div>         
+                <div  class="row justify-content-end">
+                    <div class="col-md-2">                        
+                        <input (click)="next()" type="button" name="next" class="next action-button" value="Next"/>
+                    </div>
+                </div>           
             </fieldset>
         </form>
          <form [formGroup]="addressDetails" id="msform">
             <fieldset *ngIf="step == 2" >
-                <h2 class="fs-title">Address Details</h2>
-                <input type="text" formControlName="city"  placeholder="City"/>
-                <div *ngIf="address_step && addressDetails.controls.city.errors">
-                    <div *ngIf="address.city.errors?.required">City is required</div>
+                <div class="row">
+                    <div id="card-component" class="tab-pane tab-example-result fade show active text-start mb-3" role="tabpanel" aria-labelledby="card-component-tab">
+                        <div class="card card-frame bg-dark">
+                          <div class="card-body">
+                            <h3 class="text-white">Caractirísticas de propiedad</h3>
+                          </div>
+                        </div>
+                    </div>   
                 </div>
-                <textarea rows="5" cols="5" formControlName="address"  placeholder="address"></textarea>
-                <div *ngIf="address_step && addressDetails.controls.address.errors">
-                    <div *ngIf="address.address.errors?.required">Address is required</div>
-                </div>
-                <input type="text" formControlName="pincode"  placeholder="Pincode"/>
-                <div *ngIf="address_step && addressDetails.controls.pincode.errors">
-                    <div *ngIf="address.pincode.errors?.required">Pincode is required</div>
-                </div>
+
                 <input (click)="previous()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                 <input  (click)="next()" type="button" name="next" class="next action-button" value="Next"/>
             </fieldset>

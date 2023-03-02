@@ -62,7 +62,7 @@ const routes: Routes = [
         loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule)
       },
       {
-        path: "iventory",
+        path: "inventory",
         loadChildren: () => import('./pages/properties/properties.module').then(m => m.PropertiesModule)
       },
       {

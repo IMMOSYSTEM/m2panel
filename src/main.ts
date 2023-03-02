@@ -7,7 +7,7 @@
 * Product Page: https://www.creative-tim.com/product/argon-dashboard-pro-angular
 * Copyright 2021 Creative Tim (https://www.creative-tim.com)
 
-* Coded by www.creative-tim.com
+* Coded by www.cretive-tim.com
 
 =========================================================
 

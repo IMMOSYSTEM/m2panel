@@ -8,7 +8,7 @@ import { FormControl,FormGroup,Validators,FormBuilder } from '@angular/forms';
 })
 export class FormPropertiesComponent implements OnInit {
 
-  personalDetails!: FormGroup;
+  dataPropsG!: FormGroup;
   addressDetails!: FormGroup;
   educationalDetails!: FormGroup;
   personal_step = false;
@@ -17,10 +17,21 @@ export class FormPropertiesComponent implements OnInit {
   step = 1;
   constructor(private formBuilder: FormBuilder) { }
   ngOnInit() {
-        this.personalDetails = this.formBuilder.group({
-            name: ['', Validators.required],
-            email: ['', Validators.required],
-            phone: ['',Validators.required]
+        this.dataPropsG = this.formBuilder.group({
+          typeProp:             ['', Validators.required],
+          nameProperties:       ['', Validators.required],
+          direction:            ['', Validators.required],
+          keywordProperties:    ['',Validators.required],
+          countryProperties:    ['',Validators.required],
+          stateProperties:      ['',Validators.required],
+          suburbProperties:     ['',Validators.required],
+          cityProperties:       ['',Validators.required],
+          priceSold:            ['',Validators.required],
+          priceRent:            ['',Validators.required],
+          priceRentVacation:    ['',Validators.required],
+          currencySold:         ['',Validators.required],
+          currencyRent:         ['',Validators.required],
+          currencyRentVacation: ['',Validators.required]
         });
         this.addressDetails = this.formBuilder.group({
             city: ['', Validators.required],
@@ -33,13 +44,13 @@ export class FormPropertiesComponent implements OnInit {
             total_marks: ['',Validators.required]
         });
   }
-  get personal() { return this.personalDetails.controls; }
+  get personal() { return this.dataPropsG.controls; }
   get education() { return this.educationalDetails.controls; }
   get address() { return this.addressDetails.controls; }
   next(){
     if(this.step==1){
           this.personal_step = true;
-          if (this.personalDetails.invalid) { return  }
+          if (this.dataPropsG.invalid) { return  }
           this.step++
     }
     if(this.step==2){

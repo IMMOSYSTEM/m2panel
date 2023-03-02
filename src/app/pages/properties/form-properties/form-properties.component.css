@@ -20,7 +20,7 @@
     display: none;
 }
 /*inputs*/
-#msform input, #msform textarea {
+/* #msform input, #msform textarea {
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 0px;
@@ -35,17 +35,17 @@
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    border: 1px solid #ee0979;
+    border: 1px solid #5e72e4;
     outline-width: 0;
     transition: All 0.5s ease-in;
     -webkit-transition: All 0.5s ease-in;
     -moz-transition: All 0.5s ease-in;
     -o-transition: All 0.5s ease-in;
-}
+} */
 /*buttons*/
 #msform .action-button {
     width: 100px;
-    background: #ee0979;
+    background: #5e72e4;
     font-weight: bold;
     color: white;
     border: 0 none;
@@ -55,7 +55,7 @@
     margin: 10px 5px;
 }
 #msform .action-button:hover, #msform .action-button:focus {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px #ee0979;
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #5e72e4;
 }
 #msform .action-button-previous {
     width: 100px;
@@ -95,9 +95,9 @@
 }
 #progressbar li {
     list-style-type: none;
-    color: white;
     text-transform: uppercase;
-    font-size: 9px;
+    font-weight: bold;
+    font-size: 14px;
     width: 33.33%;
     float: left;
     position: relative;
@@ -135,12 +135,12 @@
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
 #progressbar li.active:before, #progressbar li.active:after {
-    background: #ee0979;
+    background: #5e72e4;
     color: white;
 }
 #progressbar li.inactive:before{
-    background: burlywood;
-    color: #000;
+    background: black;
+    color: white;
 }
 fieldset {
    /* for chrome and safari*/

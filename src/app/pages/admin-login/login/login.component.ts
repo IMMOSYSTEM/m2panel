@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from "@angular/router";
 import swal from'sweetalert2';
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ export class LoginComponent implements OnInit {
   focus;
   focus1;
 
-  constructor( private fb: FormBuilder) {
+  constructor( private fb: FormBuilder, private router: Router) {
       
   }
   get email (){
@@ -40,7 +41,27 @@ export class LoginComponent implements OnInit {
   submit() {
     if (this.formUser.valid) {
       this.hiddenB=true;
-      swal.fire('Inicio de sesión','' ,'success');
+      // swal.fire('Inicio de sesión','' ,'success');
+      const Toast = swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', swal.stopTimer)
+          toast.addEventListener('mouseleave', swal.resumeTimer)
+        }
+      })
+      
+      Toast.fire({
+        icon: 'success',
+        title: 'Inicio de sessión exitoso'
+      })
+   
+      setTimeout(() => {
+          this.router.navigate(['/dashboard/dashboard']);
+       }, 1500);
     }
     else{
       alert("FILL ALL FIELDS")
