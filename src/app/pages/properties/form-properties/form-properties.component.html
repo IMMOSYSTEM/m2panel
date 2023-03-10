@@ -1,304 +1,715 @@
-<div class="row"> 
-    <div class="col-md-12 col-md-offset-3">
-        <form [formGroup]="dataPropsG" id="msform">
-            <!-- progressbar -->
-            <ul id="progressbar">
-                <li [ngClass]="step>=1 ? 'active ': 'inactive'">Datos Generales</li>
-                <li [ngClass]="step>=2 ? 'active' : 'inactive'">Caractirísticas</li>
-                <li [ngClass]="step==3 ? 'active' : 'inactive'">Account Setup</li>
-            </ul>
-            <!-- fieldsets -->
-            <fieldset  *ngIf="step == 1" >
-                <div class="row">
-                    <div id="card-component" class="tab-pane tab-example-result fade show active text-start mb-3" role="tabpanel" aria-labelledby="card-component-tab">
-                        <div class="card card-frame bg-dark">
-                          <div class="card-body">
-                            <h3 class="text-white">Datos Generales</h3>
-                          </div>
-                        </div>
-                    </div>                  
-                    <div class=" col-md-3">
-                        <div class="form-group">
-                            <label class="text-black">Tipo de inmueble </label>
-                            <div class=" input-group input-group-merge">
-                                <div class=" input-group-prepend">                                
-                                    <span class=" input-group-text">
-                                        <i class="fas fa-city"></i>
-                                    </span>
-                                </div>                               
-                                <select class="form-select form-control" id="typeProp"  formControlName="typeProp" name="typeProp" class="form-select form-control"  [ngClass]="{ 'is-invalid': personal_step && dataPropsG.controls.typeProp.errors }"  placeholder="Estado">
-                                    <option> Casa </option>
-                                    <option> Departamento </option>                              
-                                </select>
-                            </div>
-                            <div *ngIf="personal_step && dataPropsG.controls.typeProp.errors">
-                                <small class="text-red">Este campo es obligatorio</small>
-                             </div>
-                        </div>   
-                    </div>
-                    <div class=" col-md-3">
-                        <div class="form-group text-start">
-                            <label class="text-black label ">Nombre de propiedad</label>
-                            <div class=" input-group input-group-merge">                                                  
-                                <input type="text" formControlName="nameProperties" name="nameProperties" class="form-control"  [ngClass]="{ 'is-invalid': personal_step && personal.nameProperties.errors }" placeholder="Nombre de propiedad"/>                        
-                            </div>
-                            
-                            <div *ngIf="personal_step && dataPropsG.controls.nameProperties.errors">
-                                <small class="text-red">Este campo es obligatorio</small>
-                            </div>
-                            
-                        </div>   
-                    </div>
-                    <div class=" col-md-3">
-                        <div class="form-group text-start">
-                            <label class="text-black label ">Domicilio</label>
-                            <div class=" input-group input-group-merge">                                                  
-                                <input type="text" formControlName="direction" name="direction" class="form-control"  [ngClass]="{ 'is-invalid': personal_step && dataPropsG.controls.direction.errors }"  placeholder="Email"/>
-                            </div>
-                            <div *ngIf="personal_step && dataPropsG.controls.direction.errors">
-                                <small class="text-red">Este campo es obligatorio</small>
-                             </div>
-                        </div>   
-                    </div>
-                    <div class=" col-md-3">
-                        <div class="form-group text-start">
-                            <label class="text-black label ">Keyword de la propiedad</label>
-                            <div class=" input-group input-group-merge">                                                  
-                                <input type="text" formControlName="keywordProperties" name="keywordProperties" class="form-control"  [ngClass]="{ 'is-invalid': personal_step && dataPropsG.controls.keywordProperties.errors }"  placeholder="Keyword de la propiedad"/>
-                            </div>
-                            <div *ngIf="personal_step && dataPropsG.controls.keywordProperties.errors">
-                                <small class="text-red">Este campo es obligatorio</small>
-                             </div>
-                        </div>   
-                    </div> 
-                    <div class=" col-md-3">
-                        <div class="form-group">
-                            <label class="text-black">Pais </label>
-                            <div class=" input-group input-group-merge">
-                                <div class=" input-group-prepend">                                
-                                    <span class=" input-group-text">
-                                        <i class="fas fa-city"></i>
-                                    </span>
-                                </div>                               
-                                <select class="form-select form-control" id="countryProperties"  formControlName="countryProperties" name="countryProperties" class="form-select form-control"  [ngClass]="{ 'is-invalid': personal_step && dataPropsG.controls.countryProperties.errors }"  placeholder="Pais">
-                                    <option> Quintana Roo </option>
-                                    <option> Yucatán </option>                              
-                                </select>
-                            </div>
-                            <div *ngIf="personal_step && dataPropsG.controls.countryProperties.errors">
-                                <small class="text-red">Este campo es obligatorio</small>
-                             </div>
-                        </div>   
-                    </div>
-                    <div class=" col-md-3">
-                        <div class="form-group">
-                            <label class="text-black">Estado </label>
-                            <div class=" input-group input-group-merge">
-                                <div class=" input-group-prepend">                                
-                                    <span class=" input-group-text">
-                                        <i class="fas fa-city"></i>
-                                    </span>
-                                </div>                               
-                                <select class="form-select form-control" id="stateProperties"  formControlName="stateProperties" name="stateProperties" class="form-select form-control"  [ngClass]="{ 'is-invalid': personal_step && dataPropsG.controls.stateProperties.errors }"  placeholder="Estado">
-                                    <option> Quintana Roo </option>
-                                    <option> Yucatán </option>                              
-                                </select>
-                            </div>
-                            <div *ngIf="personal_step && dataPropsG.controls.stateProperties.errors">
-                                <small class="text-red">Este campo es obligatorio</small>
-                             </div>
-                        </div>   
-                    </div>
-                    <div class=" col-md-3">
-                        <div class="form-group">
-                            <label class="text-black">Colonia </label>
-                            <div class=" input-group input-group-merge">
-                                <div class=" input-group-prepend">                                
-                                    <span class=" input-group-text">
-                                        <i class="fas fa-city"></i>
-                                    </span>
-                                </div>                               
-                                <select class="form-select form-control" id="suburbProperties"  formControlName="suburbProperties" name="suburbProperties" class="form-select form-control"  [ngClass]="{ 'is-invalid': personal_step && dataPropsG.controls.suburbProperties.errors }"  placeholder="Colonia">
-                                    <option> Quintana Roo </option>
-                                    <option> Yucatán </option>                              
-                                </select>
-                            </div>
-                            <div *ngIf="personal_step && dataPropsG.controls.suburbProperties.errors">
-                                <small class="text-red">Este campo es obligatorio</small>
-                             </div>
-                        </div>    
-                    </div>
-                    <div class=" col-md-3">
-                        <div class="form-group">
-                            <label class="text-black">Ciudad </label>
-                            <div class=" input-group input-group-merge">
-                                <div class=" input-group-prepend">                                
-                                    <span class=" input-group-text">
-                                        <i class="fas fa-city"></i>
-                                    </span>
-                                </div>                               
-                                <select class="form-select form-control" id="cityProperties"  formControlName="cityProperties" name="cityProperties" class="form-select form-control"  [ngClass]="{ 'is-invalid': personal_step && dataPropsG.controls.cityProperties.errors }"  placeholder="Colonia">
-                                    <option> Quintana Roo </option>
-                                    <option> Yucatán </option>                              
-                                </select>
-                            </div>
-                            <div *ngIf="personal_step && dataPropsG.controls.cityProperties.errors">
-                                <small class="text-red">Este campo es obligatorio</small>
-                             </div>
-                        </div>    
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div id="card-component" class="tab-pane tab-example-result fade show active text-start mb-3" role="tabpanel" aria-labelledby="card-component-tab">
-                        <div class="card card-frame bg-dark">
-                          <div class="card-body">
-                            <h3 class="text-white">Precios</h3>
-                          </div>
-                        </div>
-                    </div>  
-                    <div class="row">
-                        <div class=" col-md-3">
-                            <div class="form-group text-start">
-                                <label class="text-black label ">Precio Venta</label>
-                                <div class=" input-group input-group-merge">                                                  
-                                    <input type="number" formControlName="priceRent" name="priceRent" class="form-control"  [ngClass]="{ 'is-invalid': personal_step && personal.priceRent.errors }" placeholder="Precio Venta"/>                        
-                                </div>                                
-                                <div *ngIf="personal_step && dataPropsG.controls.priceRent.errors">
-                                    <small class="text-red">Este campo es obligatorio</small>
-                                </div>                               
-                            </div>   
-                        </div>
-                        <div class=" col-md-2">
-                            <div class="form-group">
-                                <label class="text-black">Moneda</label>
-                                <div class=" input-group input-group-merge">
-                                    <div class=" input-group-prepend">                                
-                                        <span class=" input-group-text">
-                                            <i class="fas fa-dollar-sign"></i>
-                                        </span>
-                                    </div>                               
-                                    <select class="form-select form-control" id="currencySold"  formControlName="currencySold" name="currencySold" class="form-select form-control"  [ngClass]="{ 'is-invalid': personal_step && dataPropsG.controls.currencySold.errors }" >
-                                        <option> MXN </option>
-                                        <option> USD </option>  
-                                        <option> EUR </option>                            
-                                    </select>
-                                </div>
-                                <div *ngIf="personal_step && dataPropsG.controls.currencySold.errors">
-                                    <small class="text-red">Este campo es obligatorio</small>
-                                 </div>
-                            </div>    
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class=" col-md-3">
-                            <div class="form-group text-start">
-                                <label class="text-black label ">Precio Renta</label>
-                                <div class=" input-group input-group-merge">                                                  
-                                    <input type="number" formControlName="priceRent" name="priceRent" class="form-control"  [ngClass]="{ 'is-invalid': personal_step && personal.priceRent.errors }" placeholder="Precio Renta"/>                        
-                                </div>                                
-                                <div *ngIf="personal_step && dataPropsG.controls.nameProperties.errors">
-                                    <small class="text-red">Este campo es obligatorio</small>
-                                </div>                               
-                            </div>   
-                        </div>
-                        <div class=" col-md-2">
-                            <div class="form-group">
-                                <label class="text-black">Moneda</label>
-                                <div class=" input-group input-group-merge">
-                                    <div class=" input-group-prepend">                                
-                                        <span class=" input-group-text">
-                                            <i class="fas fa-dollar-sign"></i>
-                                        </span>
-                                    </div>                               
-                                    <select class="form-select form-control" id="currencyRent"  formControlName="currencyRent" name="currencyRent" class="form-select form-control"  [ngClass]="{ 'is-invalid': personal_step && dataPropsG.controls.currencyRent.errors }" >
-                                        <option> MXN </option>
-                                        <option> USD </option>  
-                                        <option> EUR </option>                            
-                                    </select>
-                                </div>
-                                <div *ngIf="personal_step && dataPropsG.controls.currencyRent.errors">
-                                    <small class="text-red">Este campo es obligatorio</small>
-                                 </div>
-                            </div>    
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class=" col-md-3">
-                            <div class="form-group text-start">
-                                <label class="text-black label ">Precio Renta vacacional</label>
-                                <div class=" input-group input-group-merge">                                                  
-                                    <input type="number" formControlName="priceRentVacation" name="priceRentVacation" class="form-control"  [ngClass]="{ 'is-invalid': personal_step && personal.priceRentVacation.errors }" placeholder="Precio Renta"/>                        
-                                </div>                                
-                                <div *ngIf="personal_step && dataPropsG.controls.priceRentVacation.errors">
-                                    <small class="text-red">Este campo es obligatorio</small>
-                                </div>                               
-                            </div>   
-                        </div>
-                        <div class=" col-md-2">
-                            <div class="form-group">
-                                <label class="text-black">Moneda</label>
-                                <div class=" input-group input-group-merge">
-                                    <div class=" input-group-prepend">                                
-                                        <span class=" input-group-text">
-                                            <i class="fas fa-dollar-sign"></i>
-                                        </span>
-                                    </div>                               
-                                    <select class="form-select form-control" id="currencyRentVacation"  formControlName="currencyRentVacation" name="currencyRentVacation" class="form-select form-control"  [ngClass]="{ 'is-invalid': personal_step && dataPropsG.controls.currencyRentVacation.errors }" >
-                                        <option> MXN </option>
-                                        <option> USD </option>  
-                                        <option> EUR </option>                            
-                                    </select>
-                                </div>
-                                <div *ngIf="personal_step && dataPropsG.controls.currencyRentVacation.errors">
-                                    <small class="text-red">Este campo es obligatorio</small>
-                                 </div>
-                            </div>    
-                        </div>
-                    </div>
-                  
-                </div>         
-                <div  class="row justify-content-end">
-                    <div class="col-md-2">                        
-                        <input (click)="next()" type="button" name="next" class="next action-button" value="Next"/>
-                    </div>
-                </div>           
-            </fieldset>
-        </form>
-         <form [formGroup]="addressDetails" id="msform">
-            <fieldset *ngIf="step == 2" >
-                <div class="row">
-                    <div id="card-component" class="tab-pane tab-example-result fade show active text-start mb-3" role="tabpanel" aria-labelledby="card-component-tab">
-                        <div class="card card-frame bg-dark">
-                          <div class="card-body">
-                            <h3 class="text-white">Caractirísticas de propiedad</h3>
-                          </div>
-                        </div>
-                    </div>   
-                </div>
-
-                <input (click)="previous()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                <input  (click)="next()" type="button" name="next" class="next action-button" value="Next"/>
-            </fieldset>
-        </form>
-         <form [formGroup]="addressDetails" id="msform">
-            <fieldset *ngIf="step == 3">
-                <h2 class="fs-title">Educational Details</h2>
-                <input type="text" formControlName="highest_qualification" placeholder="Highest Qualification"/>
-                <div *ngIf="education_step && educationalDetails.controls.highest_qualification.errors">
-                    <div *ngIf="education.highest_qualification.errors?.required">Highest qualification is required</div>
-                </div>
-                <input type="text" formControlName="university"  placeholder="University"/>
-                <div *ngIf="education_step && educationalDetails.controls.university.errors">
-                    <div *ngIf="education.university.errors?.required">University is required</div>
-                </div>
-                <input type="text" formControlName="total_marks" placeholder="Total Marks"/>
-                <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
-                    <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
-                </div>
-                <input (click)="previous()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                <input (click)="submit()"type="submit" name="submit" class="submit action-button" value="Submit"/>
-            </fieldset>
-        </form>
+<div class=" header bg-gradient-primary pb-6">
+    <div class=" container-fluid">
+        <div class=" header-body">
+            <div class=" row align-items-center py-4">
+                <div class=" col-lg-6 col-7">
+                    <h6 class=" h2 text-white d-inline-block mb-0">Propiedades</h6>
+          
+                    <nav
+                      aria-label="breadcrumb"
+                      class=" d-none d-md-inline-block ml-md-4"
+                    >
+                      <ol class=" breadcrumb breadcrumb-links breadcrumb-dark">
+                        <li class=" breadcrumb-item">
+                          <a href="javascript:void(0)"> <i class=" fas fa-home"> </i> </a>
+                        </li>          
+                        <li class=" breadcrumb-item">
+                            <a href="javascript:void(0)"> Agregar  propiedad </a>
+                          </li>
+                      </ol>
+                    </nav>                  
+                </div>             
+            </div>                   
+        </div>
     </div>
+</div>
+
+
+
+<div class=" container mt-5 ">
+    <div class="row "> 
+        <div class="col-md-12 col-md-offset-3">
+
+            <form [formGroup]="dataPropsG" id="msform">
+                <!-- progressbar -->
+                <div class="accordion " id="accordionExample"  *ngIf="step  ==  1 || show  ">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Elige el inmueble que quieres publicar
+                        </button>
+                      </h2>
+                      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div  class="row justify-content-center">
+                                <div class="col-md-6">
+                                    <div class="form-group mb4">
+                                        <label class="text-black text-start">Selecciona el tipo del inmueble </label><span class="text-red">*</span>
+                                        <div class=" input-group input-group-merge">
+                                                                        
+                                                <select class="form-select form-control" id="typeProp"  formControlName="typeProp" name="typeProp" [ngClass]="{ 'is-invalid': personal_step && personal.typeProp.errors,'is-valid': personal.typeProp.valid  }"  >
+        
+                                                <option> Casa </option>
+                                                <option> Departamento </option>             
+                                                <option> Departamento </option>                   
+                                            </select>
+                                        </div>
+                                        
+                                        <div *ngIf="personal_step && personal.typeProp.errors">
+                                            <small class="text-red">Este campo es obligatorio</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div  class="row d-flex justify-content-end">
+                                <div class="col-md-2 d-flex justify-content-end">                        
+                                    <button (click)="next()" type="button" [disabled]="personal.typeProp.invalid " name="next" class="btn btn-primary"  type="button" > Siguiente</button>
+                                </div>
+                            </div> 
+                        </div>
+                      </div>
+                    </div>
+                </div>               
+            </form>
+            <form [formGroup]="priceProp" id="msform">
+                <div class="accordion" id="collapseTw" *ngIf="step  ==  2 || show " >
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                            Valor del inmueble 
+                        </button>
+                      </h2>
+                      <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#collapseTw">
+                        <div class="accordion-body">
+                            <div class="row justify-content-center">
+                                   
+                              
+                                <div class=" col-md-6">
+                                    <div class="form-group text-start">
+                                        <label class="text-black label ">Precio Venta</label>
+                                        <div class=" input-group input-group-merge">                                                  
+                                            <input type="text" mask="separator.0" thousandSeparator="," formControlName="priceSold" name="priceSold" class="form-control" placeholder="Precio Venta"  />                        
+                                        </div>                                
+                                                                   
+                                    </div>   
+                                </div>
+                                <div class=" col-md-2">
+                                    <div class="form-group">
+                                        <label class="text-black">Moneda</label>
+                                        <div class=" input-group input-group-merge">
+                                                                         
+                                            <select class="form-select form-control" id="currencySold"  formControlName="currencySold" name="currencySold"  >
+                                                <option> MXN </option>
+                                                <option> USD </option>  
+                                                <option> EUR </option>                            
+                                            </select>
+                                        </div>
+                                        <div *ngIf="emptyCuS">
+                                            <small class="text-red">Este campo es obligatorio</small>
+                                         </div>
+                                    </div>    
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                    <div class="form-group text-start">
+                                        <label class="text-black label ">Precio Renta</label>
+                                        <div class=" input-group input-group-merge">                                                  
+                                            <input type="text" mask="separator.0" thousandSeparator=","  formControlName="priceRent" name="priceRent" class="form-control"   placeholder="Precio Renta"/>                        
+                                        </div>                               
+                                                                  
+                                    </div>   
+                                </div>
+                                <div class=" col-md-2">
+                                    <div class="form-group">
+                                        <label class="text-black">Moneda</label>
+                                        <div class=" input-group input-group-merge">
+                                                                       
+                                            <select class="form-select form-control" id="currencyRent"  formControlName="currencyRent" name="currencyRent"  >
+                                                <option> MXN </option>
+                                                <option> USD </option>  
+                                                <option> EUR </option>                            
+                                            </select>
+                                            <div *ngIf="emptyCuR">
+                                                <small class="text-red">Este campo es obligatorio</small>
+                                             </div>
+                                        </div>
+                                       
+                                    </div>    
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class=" col-md-6">
+                                    <div class="form-group text-start">
+                                        <label class="text-black label ">Precio Renta vacacional</label>
+                                        <div class=" input-group input-group-merge">                                                  
+                                            <input type="text" mask="separator.0" thousandSeparator=","  formControlName="priceRentVacation" name="priceRentVacation" class="form-control"   placeholder="Precio Renta"/>                        
+                                        </div>                                
+                                                                    
+                                    </div>   
+                                </div>
+                                <div class=" col-md-2">
+                                    <div class="form-group">
+                                        <label class="text-black">Moneda</label>
+                                        <div class=" input-group input-group-merge">
+                                                                        
+                                            <select class="form-select form-control" id="currencyRentVacation"  formControlName="currencyRentVacation" name="currencyRentVacation"  >
+                                                <option> MXN </option>
+                                                <option> USD </option>  
+                                                <option> EUR </option>                            
+                                            </select>
+                                            <div *ngIf="emptyCuRV">
+                                                <small class="text-red">Este campo es obligatorio</small>
+                                             </div>
+                                        </div>
+                                      
+                                    </div>    
+                                </div>
+                            
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class=" col-md-8">
+                                    <div *ngIf="emptyPrice">
+                                        <small class="text-red mb-5">Es olligatorio ingresar el precio en alguno de los tipos de precios</small>
+                                     </div> 
+                                </div>
+                            </div>    
+                            <div  class="row d-flex justify-content-between align-items-center">
+                                <div class="col-md-2">  
+                                    <button (click)="previous()"[hidden]="hidden" type="button" name="previous" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Regresar</button>                   
+                                </div>
+                                <div class="col-md-2 d-flex justify-content-end">   
+                                   
+                                    <button (click)="next()" [hidden]="hidden"type="button" name="next" class="btn btn-primary "  data-bs-toggle="collapse" data-bs-target="#collapseThre" aria-expanded="true" aria-controls="collapseThre"> Siguiente</button>
+                                    
+                                </div>
+                            </div>
+                       
+                        </div>
+                      </div>
+                    </div>
+                </div>                 
+            </form>
+            <form [formGroup]="addressDetails" id="msform">
+
+                <div class="accordion" id="collapseTh" *ngIf="step  ==  3 || show " >
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="HeadThre">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThre" aria-expanded="true" aria-controls="collapseThre">
+                            ¿Cuál es la ubicación  del inmueble?
+                        </button>
+                      </h2>
+                      <div id="collapseThre" class="accordion-collapse collapse show" aria-labelledby="HeadThre" data-bs-parent="#collapseTh">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="row d-flex justify-content-center">
+                                    <div class=" col-md-8">
+                                        <div class="form-group mb-3">
+                                            <label class="text-black label ">Domicilio </label> <span class="text-red">*</span>
+                                            <div class=" input-group input-group-merge">                                                  
+                                                <input type="text" formControlName="direction" name="direction" class="form-control"  [ngClass]="{ 'is-invalid': address_step && address.direction.errors, 'is-valid': address.direction.valid  }"  placeholder="Domicilio"/>
+                                            </div>
+                                            <div *ngIf="address_step && address.direction.errors">
+                                                <small class="text-red">Este campo es obligatorio</small>
+                                             </div>
+                                        </div> 
+                                    </div> 
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <div class=" col-md-8">
+                                        <div
+                                        class=" map-canvas"
+                                        data-lat="40.748817"
+                                        data-lng="-73.985428"
+                                        id="map-custom"
+                                        style="height: 600px;"
+                                        >
+                                        </div>
+                                    </div>
+                                </div>  
+                                <div class="row d-flex justify-content-center">
+                                    <div class=" col-md-4">
+                                        <div class="form-group mb-2">
+                                            <label class="text-black">Estado </label><span class="text-red">*</span>
+                                            <div class=" input-group input-group-merge">
+                                                                            
+                                                <select class="form-select form-control" id="stateProperties"  formControlName="stateProperties" name="stateProperties" class="form-select form-control"  [ngClass]="{ 'is-invalid': address_step && address.stateProperties.errors, 'is-valid': address.stateProperties.valid }"  placeholder="Estado">
+                                                    <option> Quintana Roo </option>
+                                                    <option> Yucatán </option>                              
+                                                </select>
+                                            </div>
+                                            <div *ngIf="address_step && address.stateProperties.errors">
+                                                <small class="text-red">Este campo es obligatorio</small>
+                                             </div>
+                                        </div> 
+                                    </div>
+
+                                    <div class=" col-md-4">                                    
+                                        <div class="form-group mb-2">
+                                            <label class="text-black"> Municipio </label><span class="text-red">*</span>
+                                            <div class=" input-group input-group-merge">
+                                                                           
+                                                <select class="form-select form-control" id="municipality"  formControlName="municipality" name="municipality" class="form-select form-control"  [ngClass]="{ 'is-invalid': address_step && address.municipality.errors, 'is-valid': address.municipality.valid }"  placeholder="Colonia">
+                                                    <option> Zona hotelera </option>
+                                                    <option> Guayacan </option>                              
+                                                </select>
+                                            </div>    
+                                            <div *ngIf="address_step && address.municipality.errors">
+                                                <small class="text-red">Este campo es obligatorio</small>
+                                             </div>                                        
+                                        </div> 
+                                    </div>
+                              
+                                                                 
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <div class=" col-md-4">
+                                        <div class="form-group mb-2">
+                                            <label class="text-black">Colonia </label><span class="text-red">*</span>
+                                            <div class=" input-group input-group-merge">                                                                            
+                                                <select class="form-select form-control" id="suburbProperties"  formControlName="suburbProperties" name="suburbProperties" class="form-select form-control"  [ngClass]="{ 'is-invalid': address_step && address.suburbProperties.errors, 'is-valid': address.suburbProperties.valid }"  placeholder="Colonia">
+                                                    <option> Zona hotelera </option>
+                                                    <option> Guayacan </option>                              
+                                                </select>
+                                            </div>
+                                            <div *ngIf="address_step && address.suburbProperties.errors">
+                                                <small class="text-red">Este campo es obligatorio</small>
+                                             </div>
+                                        </div> 
+                                    </div> 
+                                    <div class=" col-md-4">
+                                        <div class="form-group">
+                                            <label class="text-black">Ciudad </label><span class="text-red">*</span>
+                                            <div class=" input-group input-group-merge">                                                                         
+                                                <select class="form-select form-control" id="cityProperties"  formControlName="cityProperties" name="cityProperties" class="form-select form-control"  [ngClass]="{ 'is-invalid': address_step && address.cityProperties.errors, 'is-valid': address.cityProperties.valid }"  placeholder="Colonia">
+                                                    <option> Quintana Roo </option>
+                                                    <option> Yucatán </option>                              
+                                                </select>
+                                            </div>
+                                            <div *ngIf="address_step && address.cityProperties.errors">
+                                                <small class="text-red">Este campo es obligatorio</small>
+                                             </div>
+                                        </div>    
+                                    </div>
+                                </div> 
+                            
+                            </div>
+                      
+                           
+                            <div  class="row d-flex justify-content-between align-items-center">
+                                <div class="col-md-2">  
+                                    <button (click)="previous()" [hidden]="hidden" type="button" name="previous" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Regresar</button>                   
+                                </div>
+                                <div class="col-md-2 d-flex justify-content-end">   
+                                   
+                                    <button (click)="next()" [hidden]="hidden" [disabled]="addressDetails.invalid" type="button" name="next" class="btn btn-primary "> Siguiente</button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                </div> 
+            </form>
+            <form [formGroup]="featuresHouse" id="msform">
+                <div class="accordion" id="accordionC" *ngIf="step  ==  4 ">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingC">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseC" aria-expanded="true" aria-controls="collapseC">
+                            Completa las características del inmueble
+                        </button>
+                      </h2>
+                      <div id="collapseC" class="accordion-collapse collapse show" aria-labelledby="headingC" data-bs-parent="#accordionC">
+                        <div class="accordion-body">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-md-4">
+                                    <div class="form-group mb-3">
+                                        <label class="text-black label "> M<sup>2</sup> Construccion</label> 
+                                        <div class=" input-group input-group-merge">                                                  
+                                            <input type="number" formControlName="m2C" name="m2C" class="form-control"  [ngClass]="{ 'is-invalid': feature_step && feature.m2C.errors }" placeholder="M2 de construccion"/>                        
+                                        </div>                                
+                                        <div *ngIf="feature_step && feature.m2C.errors">
+                                            <small class="text-red">Este campo es obligatorio</small>
+                                        </div>                               
+                                    </div> 
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-3">
+                                        <label class="text-black label ">M<sup>2</sup> Terreno</label> <span class="text-red">*</span>
+                                        <div class=" input-group input-group-merge">                                                  
+                                            <input type="number" formControlName="m2T" name="m2T" class="form-control"  [ngClass]="{ 'is-invalid': feature_step && feature.m2T.errors }" placeholder="M2 de terreno"/>                        
+                                        </div>                                
+                                        <div *ngIf="feature_step && feature.m2T.errors">
+                                            <small class="text-red">Este campo es obligatorio</small>
+                                        </div>                               
+                                    </div>  
+                                </div>
+                            </div>
+                            <div class="row d-flex justify-content-center">  
+                                <div class="col-md-4">
+                                    <div class="form-group mb-3">
+                                        <label class="text-black label ">Square Feet</label>
+                                        <div class=" input-group input-group-merge">                                                  
+                                            <input type="number" formControlName="sqf" name="sqf" class="form-control"  [ngClass]="{ 'is-invalid': feature_step && feature.sqf.errors }" placeholder="Square Feet"/>                        
+                                        </div>                                
+                                        <div *ngIf="feature_step && feature.sqf.errors">
+                                            <small class="text-red">Este campo es obligatorio</small>
+                                        </div>                               
+                                    </div> 
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group  mb-3">
+                                        <label class="text-black label ">Baños</label>
+                                        <div class=" input-group input-group-merge">                                                  
+                                            <input type="number" formControlName="bath" name="bath" class="form-control"  [ngClass]="{ 'is-invalid': feature_step && feature.bath.errors }" placeholder="Baños"/>                        
+                                        </div>                                
+                                        <div *ngIf="feature_step && feature.bath.errors">
+                                            <small class="text-red">Este campo es obligatorio</small>
+                                        </div>                               
+                                    </div> 
+                                </div>
+                            </div>  
+                            <div class="row d-flex justify-content-center">  
+                                    <div class="col-md-4">
+                                    <div class="form-group  mb-3">
+                                        <label class="text-black label ">Recamaras</label>
+                                        <div class=" input-group input-group-merge">                                                  
+                                            <input type="number" formControlName="room" name="room" class="form-control"  [ngClass]="{ 'is-invalid': feature_step && feature.room.errors }" placeholder="Recamaras"/>                        
+                                        </div>                                
+                                        <div *ngIf="feature_step && feature.room.errors">
+                                            <small class="text-red">Este campo es obligatorio</small>
+                                        </div>                               
+                                    </div>
+                                </div>
+                                <div class=" col-md-4">
+                                    <div class="form-group text-start">
+                                        <label class="text-black label ">No.Estacionamiento(s)</label>
+                                        <div class=" input-group input-group-merge">                                                  
+                                            <input type="number" formControlName="garage" name="garage" class="form-control"  [ngClass]="{ 'is-invalid': personal_step && feature.garage.errors }" placeholder="Precio Renta"/>                        
+                                        </div>                                
+                                        <div *ngIf="feature_step && feature.garage.errors">
+                                            <small class="text-red">Este campo es obligatorio</small>
+                                        </div>                               
+                                    </div>   
+                                </div>
+                            </div>     
+               
+                            <div  class="row d-flex justify-content-between align-items-center">
+                                <div class="col-md-2">  
+                                    <button (click)="previous()"[hidden]="hidden" type="button" name="previous" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseThre" aria-expanded="true" aria-controls="collapseThre">Regresar</button>                   
+                                </div>
+                                <div class="col-md-2 d-flex justify-content-end">   
+                                   
+                                    <button (click)="next()" [hidden]="hidden" type="button" name="next" class="btn btn-primary " data-bs-toggle="collapse" data-bs-target="#collapseAm" aria-expanded="true" aria-controls="collapseAm"> Siguiente</button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                </div> 
+           
+            </form>
+            <form [formGroup]="amenitis" id="msform">
+                <div class="accordion" id="accordionA" *ngIf="step  ==  5 || show ">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingAm">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAm" aria-expanded="true" aria-controls="collapseAm">
+                            Agregar amenidades
+                        </button>
+                      </h2>
+                      <div id="collapseAm" class="accordion-collapse collapse show" aria-labelledby="headingAm" data-bs-parent="#accordionA">
+                        <div class="accordion-body">
+                            <div class="row d-flex justify-content-center">  
+                                <div class=" col-md-4">
+                                    <div class="form-group text-start">
+                                        <label class="text-black label ">Amenidades - Interiores</label>
+                                        <div class=" input-group input-group-merge">                                                  
+                                            <tag-input
+                                            formControlName="ameInt"
+                                            theme="dark"
+                                            name="ameInt"
+                                            secondaryPlaceholder= "Ingresar Amenidades"                                            
+                                            [ngClass]="{ 'is-invalid': amenitis_step && ameniti.ameInt.errors }"
+
+                                        ></tag-input>
+                                        </div> 
+                                                                      
+                                        <div *ngIf="amenitis_step && ameniti.ameInt.errors">
+                                            <small class="text-red">Este campo es obligatorio</small>
+                                        </div>                               
+                                    </div>   
+                                </div>
+                                <div class=" col-md-4">
+                                    <div class="form-group text-start">
+                                        <label class="text-black label ">Amenidades - Exteriores</label>
+                                        <div class=" input-group input-group-merge">                                                  
+                                            <tag-input
+                                            formControlName="ameExt"
+                                            theme="dark"
+                                            name="ameExt"
+                                            secondaryPlaceholder= "Ingresar Amenidades"                                            
+                                            [ngClass]="{ 'is-invalid': amenitis_step && ameniti.ameExt.errors }"
+
+                                        ></tag-input>
+                                        </div>                                
+                                        <div *ngIf="amenitis_step && ameniti.ameExt.errors">
+                                            <small class="text-red">Este campo es obligatorio</small>
+                                        </div>                               
+                                    </div>   
+                                </div>
+                            </div>
+                            <div class="row d-flex justify-content-center">  
+                                <div class="col-md-8">
+                                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="flush-headingOne">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                                Servicios
+                                            </button>
+                                            </h2>
+                                            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6 text-start">
+                                                                    <label class="text-black label ">Luz </label>   
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label class="custom-toggle">                                                        
+                                                                    <input type="checkbox"  formControlName="light" name="light"> 
+                                                                    <span class="custom-toggle-slider rounded-circle ml-2" data-label-off="No" data-label-on="Si"> </span>
+                                                                </label>  
+                                                            </div>  
+                                                        </div>                                             
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6 text-start">
+                                                                    <label class="text-black label ">Agua </label>   
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label class="custom-toggle">                                                        
+                                                                    <input type="checkbox"  formControlName="water" name="water"> 
+                                                                    <span class="custom-toggle-slider rounded-circle ml-2" data-label-off="No" data-label-on="Si"> </span>
+                                                                </label>  
+                                                            </div>  
+                                                        </div>                                             
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6 text-start">
+                                                                    <label class="text-black label ">Internet </label>   
+                                                            </div>
+                                                            <div class="col-md-6 ">
+                                                                <label class="custom-toggle">                                                        
+                                                                    <input type="checkbox"  formControlName="internet" name="internet"> 
+                                                                    <span class="custom-toggle-slider rounded-circle ml-2" data-label-off="No" data-label-on="Si"> </span>
+                                                                </label>  
+                                                            </div>  
+                                                        </div>                                             
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6 text-start">
+                                                                    <label class="text-black label ">Panel solar </label>   
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label class="custom-toggle">                                                        
+                                                                    <input type="checkbox"  formControlName="solarsPanels" name="solarsPanels"> 
+                                                                    <span class="custom-toggle-slider rounded-circle ml-2" data-label-off="No" data-label-on="Si"> </span>
+                                                                </label>  
+                                                            </div>  
+                                                        </div>                                             
+                                                    </div>  
+                                                    <div class="col-md-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6 text-start">
+                                                                    <label class="text-black label ">Gas </label>   
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label class="custom-toggle">                                                        
+                                                                    <input type="checkbox"  formControlName="gas" name="gas"> 
+                                                                    <span class="custom-toggle-slider rounded-circle ml-2" data-label-off="No" data-label-on="Si"> </span>
+                                                                </label>  
+                                                            </div>  
+                                                        </div>                                             
+                                                    </div> 
+                                                    <div class="col-md-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6 text-start">
+                                                                    <label class="text-black label ">Telefóno </label>   
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label class="custom-toggle">                                                        
+                                                                    <input type="checkbox"  formControlName="telephone" name="telephone"> 
+                                                                    <span class="custom-toggle-slider rounded-circle ml-2" data-label-off="No" data-label-on="Si"> </span>
+                                                                </label>  
+                                                            </div>  
+                                                        </div>                                             
+                                                    </div> 
+                                                    <div class="col-md-6">
+                                                        <div class="row">
+                                                            <div class="col-md-6 text-start">
+                                                                    <label class="text-black label ">A/C </label>   
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label class="custom-toggle">                                                        
+                                                                    <input type="checkbox"  formControlName="ac" name="ac"> 
+                                                                    <span class="custom-toggle-slider rounded-circle ml-2" data-label-off="No" data-label-on="Si"> </span>
+                                                                </label>  
+                                                            </div>  
+                                                        </div>                                             
+                                                    </div> 
+                                                        
+                                                </div>
+                                                
+                                            </div>
+                                            </div>
+                                        </div>
+                                    
+                                    </div>
+                                </div>
+                               
+
+                            </div>
+                            <div  class="row d-flex justify-content-between align-items-center">
+                                <div class="col-md-2">  
+                                    <button (click)="previous()" [hidden]="hidden"type="button" name="previous" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseC" aria-expanded="true" aria-controls="collapseC">Regresar</button>                   
+                                </div>
+                                <div class="col-md-2 d-flex justify-content-end">   
+                                    <button (click)="next()" [hidden]="hidden" [disabled]="amenitis.invalid" type="button" name="next" class="btn btn-primary "> Siguiente</button>
+
+                                    
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>   
+            
+            </form>
+            <form [formGroup]="video" id="msform">
+              
+                <div class="accordion" id="accordionVideo " *ngIf="step  ==  6 || show ">
+                    <div class="accordion-item" >
+                      <h2 class="accordion-header" id="headingVideo">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVideo" aria-expanded="true" aria-controls="collapseVideo">
+                            Agregar un video o tour virtual
+                        </button>
+                      </h2>
+                      <div id="collapseVideo" class="accordion-collapse collapse show" aria-labelledby="headingVideo" data-bs-parent="#accordionVideo">
+                        <div class="accordion-body">
+                            <div class="row d-flex justify-content-center">  
+                                <div class=" col-md-8">
+                                    <div class="form-group text-start">
+                                        <label class="text-black label ">Youtube</label>
+                                        <div class=" input-group input-group-merge">                                                  
+                                            <input type="text" formControlName="youtube" name="youtube" class="form-control" placeholder="https://www.youtube.com/"  />                        
+                                        </div>                                
+                                                                
+                                    </div>   
+                                </div>
+                                
+                                <div class=" col-md-8">
+                                    <div class="form-group text-start">
+                                        <label class="text-black label ">Recorrido virtual</label>
+                                        <div class=" input-group input-group-merge">                                                  
+                                            <input type="text" formControlName="virtualUrl" name="virtualUrl" class="form-control" placeholder="Recorrido"  />                        
+                                        </div>                                
+                                                                
+                                    </div>   
+                                </div>
+                           </div> 
+                           <div  class="row d-flex justify-content-between align-items-center">
+                            <div class="col-md-2">  
+                                <button (click)="previous()" [hidden]="hidden" type="button" name="previous" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseAm" aria-expanded="true" aria-controls="collapseAm">Regresar</button>                   
+                            </div>
+                            <div class="col-md-2 d-flex justify-content-end">   
+                               
+                                <button (click)="submit()" type="button" name="next" class="btn btn-primary " > Guardar</button>
+                                
+                            </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>                 
+            </form>
+            <form [formGroup]="video" id="msform">
+              
+                <div class="accordion" id="collapseImg " *ngIf=" show ">
+                    <div class="accordion-item" >
+                      <h2 class="accordion-header" id="headingImg">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseImg" aria-expanded="true" aria-controls="collapseImg">
+                            Agregar un video o tour virtual
+                        </button>
+                      </h2>
+                      <div id="collapseImg" class="accordion-collapse collapse show" aria-labelledby="headingImg" data-bs-parent="#collapseImg">
+                        <div class="accordion-body">
+                            <div class="row d-flex justify-content-center">  
+                                <div class=" col-md-8">
+                                                             
+                                    <div class=" dropzone dropzone-multiple"  id="dropzone-multiple" >
+                                    <div class=" fallback">
+                                      <div class=" custom-file">
+                                        <input
+                                          class=" custom-file-input"   id="customFileUploadMultiple"  multiple="multiple" type="file"/>                                
+                                        <label class=" custom-file-label"  for="customFileUploadMultiple" >
+                                          Subir Imagenes
+                                        </label>
+                                      </div>
+                                    </div>
+                                
+                                    <ul
+                                      class=" dz-preview dz-preview-multiple list-group list-group-lg list-group-flush" >
+                                      <li class=" list-group-item px-0">
+                                        <div class=" row align-items-center">
+                                          <div class=" col-auto">
+                                            <div class=" avatar">
+                                              <img
+                                                alt="..."
+                                                class=" avatar-img rounded"
+                                                data-dz-thumbnail=""
+                                                src="..."/>
+                                            </div>
+                                          </div>
+                                
+                                          <div class=" col ml--3">
+                                            <h4 class=" mb-1" data-dz-name="">...</h4>
+                                
+                                            <p class=" small text-muted mb-0" data-dz-size="">...</p>
+                                          </div>
+                                
+                                          <div class=" col-auto">
+                                            <button data-dz-remove="true" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                          </div>
+                                        </div>
+                                      </li>
+                                    </ul>
+                                  </div>                      
+                               
+                                </div>                                
+                              
+                           </div> 
+                           <div  class="row d-flex justify-content-between align-items-center">
+                            <div class="col-md-2">  
+                                <button (click)="previous()" [hidden]="hidden" type="button" name="previous" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseAm" aria-expanded="true" aria-controls="collapseAm">Regresar</button>                   
+                            </div>
+                            <div class="col-md-2 d-flex justify-content-end">   
+                               
+                                <button (click)="submit()" type="button" name="next" class="btn btn-primary " > Guardar</button>
+                                
+                            </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>                 
+            </form>
+        </div>
+    </div> 
+   
 </div>

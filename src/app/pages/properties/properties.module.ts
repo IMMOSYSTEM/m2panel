@@ -5,6 +5,10 @@ import  {PropertiesRoutes} from './properties.routing';
 import {  RouterModule } from "@angular/router";
 import { FormPropertiesComponent } from './form-properties/form-properties.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { TagInputModule } from 'ngx-chips';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
+
 @NgModule({
   declarations: [
     PropertiesComponent,
@@ -15,7 +19,13 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     RouterModule.forChild(PropertiesRoutes),
     ReactiveFormsModule,
     FormsModule,
-
-  ]
+    TagInputModule,
+    NgxMaskModule.forRoot(),
+  ],  
+  providers: [
+    ]
 })
-export class PropertiesModule { }
+export class PropertiesModule { 
+  
+}
+
